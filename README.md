@@ -2,6 +2,17 @@
 
 A React implementation of the "Share Video Clip" exercise.
 
+This simple React app can be run with `npm install && npm start`, however you'll need a Pro subscription to Font Awesome to be able to load all of the icons: https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro
+
+It is designed to be run locally, so it uses `local-cors-proxy` to avoid Cross Origin Resource Sharing (CORS) errors when accessing the list of Slack channels from the remote API.  In a real-life situation, this could be handled more elegantly, possibly by serving the API and the front-end from the same origin.
+
+This exercise was time-boxed to one week in my spare time - there's a lot more I'd like to do if I had more time, including Unit Tests (Jest / Enzyme), documentation, and code style improvements.
+
+The React components can be found in `src/components/`.  Some make use of established React components like `react-modal` and `react-select`, while other components use simple HTML elements together with Font Awesome icons and CSS provided in the specification for this exercise.
+
+An attempt is made to follow the "Lifting State Up" philosophy (https://reactjs.org/docs/lifting-state-up.html), i.e. whilst it may seem logical to make the `selectedChannel` a state of the `SelectChannel` component (used within the `ShareVideoModal` component), the `selectedChannel` is needed by the ancestor of the `ShareVideoModal` component (which is called `ScreenContainer`), because the appropriate action to be performed after clicking the modal dialog's `Share with Slack` button depends on whether a Slack channel has been selected or not.  If a Slack channel has been selected, then the video clip can be posted to Slack and the React app can display a success notification.  If a Slack channel has not been selected, then the React app can display an error message, instructing the user to select a channel.
+
+
 ![Animated GIF](https://media.giphy.com/media/60rHlxrtHBSDZ2Mmy0/giphy.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
