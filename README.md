@@ -1,3 +1,9 @@
+# react-share-video-clip
+
+A React implementation of the "Share Video Clip" exercise.
+
+![Animated GIF](https://media.giphy.com/media/60rHlxrtHBSDZ2Mmy0/giphy.gif)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
